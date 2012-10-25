@@ -1,0 +1,115 @@
+\documentclass[12pt]{jarticle}
+%\usepackage{doublespace}
+\usepackage{amsmath,amssymb} %数学用のフォントが入ってる
+\usepackage{bm}              %行列やらベクトルを書くフォントが入ってる
+\usepackage[dvips]{graphicx} %画像を挿入するための書式やらが入っている
+\usepackage{theorem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{topnumber}{5}%    ページ上部の図表は 5 個まで
+\def\topfraction{1.00}%       ページの上 1.00 まで図表で占めて可
+\setcounter{bottomnumber}{5}% ページ下部の図表は 5 個まで
+\def\bottomfraction{1.00}%    ページの下 1.00 まで図表で占めて可
+\setcounter{totalnumber}{10}% ページあたりの図表は 10 個まで
+\def\textfraction{0.04}%      ページうち本文が占めジが出来るる割合の下限
+%        これを 0 にすると本文が 1 行だけのペー
+%        0.04 くらいにすると 1 行だけのページは防げる
+%        0.1 くらいが良いかも知れない
+\def\floatpagefraction{0.7}%  図表だけのページは少なくとも
+                           %  これだけを図表が占める
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%これを調整するとレイアウトが変わる
+\setlength{\topmargin}{20mm}
+\addtolength{\topmargin}{-1in}
+\setlength{\oddsidemargin}{26mm}
+\addtolength{\oddsidemargin}{-1in}
+\setlength{\evensidemargin}{30mm}
+\addtolength{\evensidemargin}{-1in}
+\setlength{\textwidth}{158mm}
+\setlength{\textheight}{245mm}
+\setlength{\headsep}{0mm}
+\setlength{\headheight}{0mm}
+\setlength{\topskip}{0mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% deleting extra spaces in eqnarray environment
+%
+\makeatletter
+\def\eqnarray{\stepcounter{equation}\let\@currentlabel=\theequation
+\global\@eqnswtrue
+\global\@eqcnt\z@\tabskip\@centering\let\\=\@eqncr
+$$\halign to \displaywidth\bgroup\@eqnsel\hskip\@centering
+  $\displaystyle\tabskip\z@{##}$&\global\@eqcnt\@ne 
+  \hfil$\;{##}\;$\hfil
+  &\global\@eqcnt\tw@ $\displaystyle\tabskip\z@{##}$\hfil 
+   \tabskip\@centering&\llap{##}\tabskip\z@\cr}
+%$
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% コンパイル時に斜字体フォントに関する警告ーがでないようにする
+\DeclareFontShape{JY1}{mc}{m}{it}{<5> <6> <7> <8> <9> <10> sgen*min
+    <10.95><12><14.4><17.28><20.74><24.88> min10 <-> min10}{}
+\DeclareFontShape{JT1}{mc}{m}{it}{<5> <6> <7> <8> <9> <10> sgen*tmin
+    <10.95><12><14.4><17.28><20.74><24.88> tmin10 <-> tmin10}{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\vc#1{\mbox{\boldmath$#1$}}
+\def\svc#1{\mbox{\boldmath$\scriptstyle#1$}}
+\def\ssvc#1{\mbox{\boldmath$\scriptscriptstyle#1$}}
+\newcommand{\calS}{\mathcal{S}}
+\newcommand{\calL}{\mathcal{L}}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\J}{\mathcal{J}}
+\newcommand{\E}{\mathcal{E}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\renewcommand{\labelenumi}{(\alph{enumi})}
+%\renewcommand{\labelenumi}{(\arabic{enumi})}
+\renewcommand{\labelenumi}{(\roman{enumi})}
+% 箇条書きのデフォルトの変更 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 定理と証明環境の定義
+\theorembodyfont{\rmfamily}
+\newtheorem{thm}{定理}%[section]
+\newtheorem{lem}[thm]{補題}
+\newtheorem{prop}[thm]{命題}
+\newtheorem{assum}[thm]{仮定}
+\newtheorem{defn}[thm]{定義}
+\newtheorem{coro}[thm]{系}
+\newtheorem{rem}[thm]{注意}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%
+\begin{document}
+
+%
+\begin{center}
+\huge{}\\ %題名
+\vspace*{4mm}
+\Large{}\\ %著者
+\vspace*{4mm}
+\small{}\\ %日付
+\end{center}
+%
+
+
+%
+\tableofcontents
+%\listoffigures
+\thispagestyle{empty}
+\newpage
+\setcounter{page}{1}
+%
+
+
+\section{}
+
+
+
+
+%
+\begin{thebibliography}{99}
+\bibitem{}
+
+\end{thebibliography}
+%
+
+\end{document}
+%
