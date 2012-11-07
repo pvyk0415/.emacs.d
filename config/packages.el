@@ -14,6 +14,9 @@
 ;;; auto-complete.el ; 自動補完を行う
 (require 'auto-complete)
 (global-auto-complete-mode t)
+(define-key ac-complete-mode-map "\C-n" 'ac-next) ; C-nで候補を選択
+(define-key ac-complete-mode-map "\C-p" 'ac-previous) ; C-pで候補を選択
+(add-to-list 'ac-modes 'yatex-mode)
 
 ;;; auto-save-buffers.el ;自動保存を行う
 (require 'auto-save-buffers)
