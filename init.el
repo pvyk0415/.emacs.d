@@ -84,10 +84,10 @@
 
       ;; ウィンドウサイズ等設定
       (setq initial-frame-alist '(
-				  (width . 235)
+				  (width . 230)
 				  (height . 61)
-				  (top . 0)
-				  (left . 0)))
+				  (top . 23)
+				  (left . 1940)))
       (set-background-color "Black") ; 背景色
       (set-foreground-color "White") ; 字の色
       (set-cursor-color "Gray")      ; カーソルの色
