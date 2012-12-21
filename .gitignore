@@ -1,0 +1,3 @@
+#バイトコンパイルファイルとauto-save-listを無視
+*.elc
+auto-save-list/
