@@ -72,6 +72,8 @@
   ;; scroll-bar を非表示
   (scroll-bar-mode 0))
 
+;;; Emacs起動時にEshellを起動
+(add-hook 'after-init-hook (lambda() (eshell)))
 
 ;; ==================================================
 ;; 環境に応じた設定の分岐
