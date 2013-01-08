@@ -35,7 +35,4 @@
 (autoload 'yatex-mode "yatex" "Yet Another LaTeX mode" t)
 ;; 文書作成時の日本語文字コード
 (setq YaTeX-kanji-code nil) ; 1=SJIS 2=JIS 3=EUC 4=UTF-8
-(setq tex-command "c:/usr/local/w32tex/bin/platex")
-(setq dvi2-command "c:/usr/local/dviout/dviout")
-(setq dviprint-command-format "c:/usr/local/w32tex/bin/dvipdfmx %s")
 
