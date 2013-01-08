@@ -43,7 +43,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;;; 現在行に色をつける
-(global-hl-line-mode t)
+;; (global-hl-line-mode t)
 
 ;;; 対応する括弧を光らせる
 (show-paren-mode t)
@@ -73,6 +73,8 @@
   ;; scroll-bar を非表示
   (scroll-bar-mode 0))
 
+;;; Emacs起動時にEshellを起動
+(add-hook 'after-init-hook (lambda() (eshell)))
 
 ;; ==================================================
 ;; 環境に応じた設定の分岐
@@ -84,10 +86,10 @@
 
       ;; ウィンドウサイズ等設定
       (setq initial-frame-alist '(
-				  (width . 230)
-				  (height . 61)
-				  (top . 23)
-				  (left . 1940)))
+				  (width . 128)
+				  (height . 44)
+				  (top . 5)
+				  (left . 80)))
       (set-background-color "Black") ; 背景色
       (set-foreground-color "White") ; 字の色
       (set-cursor-color "Gray")      ; カーソルの色
@@ -96,20 +98,11 @@
       (set-frame-parameter (selected-frame) 'alpha '(85 50))
 
       ;; フォントの設定
-      (custom-set-variables
-       ;; custom-set-variables was added by Custom.
-       ;; If you edit it by hand, you could mess it up, so be careful.
-       ;; Your init file should contain only one such instance.
-       ;; If there is more than one, they won't work right.
-       '(column-number-mode t)
-       '(show-paren-mode t)
-       '(tool-bar-mode nil))
-      (custom-set-faces
-       ;; custom-set-faces was added by Custom.
-       ;; If you edit it by hand, you could mess it up, so be careful.
-       ;; Your init file should contain only one such instance.
-       ;; If there is more than one, they won't work right.
-       '(default ((t (:inherit nil :stipple nil :background "Black" :foreground "White" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 120 :width normal :foundry "outline" :family "ＭＳ ゴシック")))))))
+      (set-face-attribute 'default nil
+                          :family "メイリオ"
+                          :height 110)
+
+))
 
 ;;; Mac設定
 (if (eq window-system 'ns) 
@@ -129,7 +122,9 @@
       (set-cursor-color "Gray")      ; カーソルの色
 
       ;; フレーム透過設定
-      (set-frame-parameter (selected-frame) 'alpha '(85 50))))
+      (set-frame-parameter (selected-frame) 'alpha '(85 50))
+
+))
 
 ;;; Linux設定
 (if (eq window-system 'x)
@@ -137,10 +132,10 @@
       
       ;; ウィンドウサイズ等設定
       (setq initial-frame-alist '(
-				  (width . 165)
-				  (height . 50)
-				  (top . 30)
-				  (left . 5)))
+				  (width . 200)
+				  (height . 53)
+				  (top . 36)
+				  (left . 90)))
       (set-background-color "Black") ; 背景色
       (set-foreground-color "White") ; 字の色
       (set-cursor-color "Gray")      ; カーソルの色
@@ -149,20 +144,10 @@
       (set-frame-parameter (selected-frame) 'alpha '(85 50))
 
       ;; フォント設定
-      (custom-set-variables
-       ;; custom-set-variables was added by Custom.
-       ;; If you edit it by hand, you could mess it up, so be careful.
-       ;; Your init file should contain only one such instance.
-       ;; If there is more than one, they won't work right.
-       '(column-number-mode t)
-       '(show-paren-mode t)
-       '(tool-bar-mode nil))
-      (custom-set-faces
-       ;; custom-set-faces was added by Custom.
-       ;; If you edit it by hand, you could mess it up, so be careful.
-       ;; Your init file should contain only one such instance.
-       ;; If there is more than one, they won't work right.
-       '(default ((t (:inherit nil :stipple nil :background "Black" :foreground "White" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 154 :width normal :foundry "unknown" :family "Takao Pゴシック")))))))
+      (set-face-attribute 'default nil
+                          :height 140)
+
+))
 
 ;; ==================================================
 ;; 追加の設定をロード

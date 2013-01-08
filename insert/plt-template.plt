@@ -22,7 +22,8 @@ set key rig bot
 #
 #プロット
 pl "" u : w l ti ""
-repl "" u :: w ye ti ""
+#error bar
+pl "" u :: w ye ti ""
 #
 #eps出力
 set ter pos eps enh
@@ -31,3 +32,4 @@ repl
 #
 set ter wxt
 set ter windows
+set ter x11
