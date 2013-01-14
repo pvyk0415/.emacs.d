@@ -9,6 +9,9 @@ set format y "%g"
 set log y
 set format y "10^{%L}"
 #
+#画像サイズ
+set size 0.7, 0.7
+#
 #範囲設定
 set xr [:]
 set yr [:]
@@ -26,7 +29,10 @@ pl "" u : w l ti ""
 pl "" u :: w ye ti ""
 #
 #eps出力
+#モノクロ
 set ter pos eps enh
+#カラー
+set ter pos eps enh color solid
 set out ".eps"
 repl
 #
