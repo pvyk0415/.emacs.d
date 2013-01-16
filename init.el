@@ -136,12 +136,12 @@
 
   ;; フォント設定
   (set-face-attribute 'default nil
-                      :height 160)
+                      :height 140)
 
   ;; ウィンドウサイズ等設定
   (setq initial-frame-alist '(
-                              (width . 190)
-                              (height . 50)
+                              (width . 167)
+                              (height . 40)
                               (top . 30)
                               (left . 5)
                               ))
