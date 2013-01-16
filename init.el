@@ -73,7 +73,7 @@
   (scroll-bar-mode 0))
 
 ;;; Emacs起動時にEshellを起動
-(add-hook 'after-init-hook (lambda() (eshell)))
+;; (add-hook 'after-init-hook (lambda() (eshell)))
 
 ;; ==================================================
 ;; 環境に応じた設定の分岐
@@ -133,6 +133,10 @@
       
   ;; フレーム透過設定
   (set-frame-parameter (selected-frame) 'alpha '(85 50))
+
+  ;; フォント設定
+  (set-face-attribute 'default nil
+                      :height 16)
 
   ;; ウィンドウサイズ等設定
   (setq initial-frame-alist '(
