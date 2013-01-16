@@ -136,7 +136,7 @@
 
   ;; フォント設定
   (set-face-attribute 'default nil
-                      :height 16)
+                      :height 160)
 
   ;; ウィンドウサイズ等設定
   (setq initial-frame-alist '(
