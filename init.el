@@ -1,6 +1,5 @@
 ;;; 初期設定ファイル ----- init.el -----
 
-
 ;; ==================================================
 ;; パス設定
 ;; ==================================================
@@ -80,74 +79,132 @@
 ;; 環境に応じた設定の分岐
 ;; ==================================================
 
-;;; Windows設定
-(if (eq window-system 'w32)
-    (progn
+(cond
+ ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Windows設定 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ ((eq window-system 'w32)
 
-      ;; ウィンドウサイズ等設定
-      (setq initial-frame-alist '(
-				  (width . 128)
-				  (height . 44)
-				  (top . 5)
-				  (left . 80)))
-      (set-background-color "Black") ; 背景色
-      (set-foreground-color "White") ; 字の色
-      (set-cursor-color "Gray")      ; カーソルの色
+  ;; フレーム透過設定
+  (set-frame-parameter (selected-frame) 'alpha '(85 50))
 
-      ;; フレーム透過設定
-      (set-frame-parameter (selected-frame) 'alpha '(85 50))
+  ;; フォントの設定
+  (set-face-attribute 'default nil
+                      :family "メイリオ"
+                      :height 110
+                      )
 
-      ;; フォントの設定
-      (set-face-attribute 'default nil
-                          :family "メイリオ"
-                          :height 110)
+  (cond
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 研究室Win-PC ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+   ((string-match "^Yasuharu-PC" system-name)
 
-))
+    ;; ウィンドウサイズ等設定
+    (setq initial-frame-alist '(
+                                (width . 128)
+                                (height . 44)
+                                (top . 5)
+                                (left . 80)
+                                ))
+    (set-background-color "Black") ; 背景色
+    (set-foreground-color "White") ; 字の色
+    (set-cursor-color "Gray")      ; カーソルの色
+    )
 
-;;; Mac設定
-(if (eq window-system 'ns) 
-    (progn
+   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 家Win-PC ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+   ((string-match "^Yasuharu-HP" system-name)
 
-      ;; バックスラッシュ入力
-      ;; (mac-translate-from-yen-to-backslash)
+    ;; ウィンドウサイズ等設定
+    (setq initial-frame-alist '(
+                                (width . 128)
+                                (height . 44)
+                                (top . 5)
+                                (left . 80)
+                                ))
+    (set-background-color "Black") ; 背景色
+    (set-foreground-color "White") ; 字の色
+    (set-cursor-color "Gray")      ; カーソルの色
+    )
+   )
+  )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Mac設定 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ ((eq window-system 'ns) 
+
+  ;; バックスラッシュ入力
+  (mac-translate-from-yen-to-backslash)
       
-      ;; ウィンドウサイズ等設定
-      (setq initial-frame-alist '(
-				  (width . 190)
-				  (height . 50)
-				  (top . 30)
-				  (left . 5)))
-      (set-background-color "Black") ; 背景色
-      (set-foreground-color "White") ; 字の色
-      (set-cursor-color "Gray")      ; カーソルの色
+  ;; フレーム透過設定
+  (set-frame-parameter (selected-frame) 'alpha '(85 50))
 
-      ;; フレーム透過設定
-      (set-frame-parameter (selected-frame) 'alpha '(85 50))
+  ;; ウィンドウサイズ等設定
+  (setq initial-frame-alist '(
+                              (width . 190)
+                              (height . 50)
+                              (top . 30)
+                              (left . 5)
+                              ))
+  (set-background-color "Black") ; 背景色
+  (set-foreground-color "White") ; 字の色
+  (set-cursor-color "Gray")      ; カーソルの色
 
-))
+  )
 
-;;; Linux設定
-(if (eq window-system 'x)
-    (progn
+ ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Linux設定 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ ((eq window-system 'x)
       
-      ;; ウィンドウサイズ等設定
-      (setq initial-frame-alist '(
-				  (width . 200)
-				  (height . 53)
-				  (top . 36)
-				  (left . 90)))
-      (set-background-color "Black") ; 背景色
-      (set-foreground-color "White") ; 字の色
-      (set-cursor-color "Gray")      ; カーソルの色
+  ;; フレーム透過設定
+  (set-frame-parameter (selected-frame) 'alpha '(85 50))
 
-      ;; フレーム透過設定
-      (set-frame-parameter (selected-frame) 'alpha '(85 50))
+  ;; フォント設定
+  (set-face-attribute 'default nil
+                      :height 140)
 
-      ;; フォント設定
-      (set-face-attribute 'default nil
-                          :height 140)
+  (cond
+   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 研究室Ubuntu ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+   ((string-match "^konishi-PC" system-name)
 
-))
+    ;; ウィンドウサイズ等設定
+    (setq initial-frame-alist '(
+                                (width . 200)
+                                (height . 53)
+                                (top . 36)
+                                (left . 90)
+                                ))
+    (set-background-color "Black") ; 背景色
+    (set-foreground-color "White") ; 字の色
+    (set-cursor-color "Gray")      ; カーソルの色
+    )
+
+   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; スパコンcamphor ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+   ((string-match "^xe" system-name)
+
+   ;; ウィンドウサイズ等設定
+   (setq initial-frame-alist '(
+                               (width . 200)
+                               (height . 53)
+                               (top . 36)
+                               (left . 90)
+                               ))
+   (set-background-color "Black") ; 背景色
+   (set-foreground-color "White") ; 字の色
+   (set-cursor-color "Gray")      ; カーソルの色
+   )
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; スパコンcamphor ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+   ((string-match "^ap" system-name)
+
+    ;; ウィンドウサイズ等設定
+    (setq initial-frame-alist '(
+                                (width . 200)
+                                (height . 53)
+                                (top . 36)
+                                (left . 90)
+                                ))
+    (set-background-color "Black") ; 背景色
+    (set-foreground-color "White") ; 字の色
+    (set-cursor-color "Gray")      ; カーソルの色
+    )
+   )
+  )
+ )
 
 ;; ==================================================
 ;; 追加の設定をロード
