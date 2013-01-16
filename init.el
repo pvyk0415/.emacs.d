@@ -153,13 +153,13 @@
   ;; フレーム透過設定
   (set-frame-parameter (selected-frame) 'alpha '(85 50))
 
-  ;; フォント設定
-  (set-face-attribute 'default nil
-                      :height 140)
-
   (cond
    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 研究室Ubuntu ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
    ((string-match "^konishi-PC" system-name)
+
+    ;; フォント設定
+    (set-face-attribute 'default nil
+                        :height 170)
 
     ;; ウィンドウサイズ等設定
     (setq initial-frame-alist '(
@@ -176,20 +176,28 @@
    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; スパコンcamphor ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
    ((string-match "^xe" system-name)
 
-   ;; ウィンドウサイズ等設定
-   (setq initial-frame-alist '(
-                               (width . 200)
-                               (height . 53)
-                               (top . 36)
-                               (left . 90)
-                               ))
-   (set-background-color "Black") ; 背景色
-   (set-foreground-color "White") ; 字の色
-   (set-cursor-color "Gray")      ; カーソルの色
-   )
+    ;; フォント設定
+    (set-face-attribute 'default nil
+                        :height 140)
 
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; スパコンcamphor ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+    ;; ウィンドウサイズ等設定
+    (setq initial-frame-alist '(
+                                (width . 200)
+                                (height . 53)
+                                (top . 36)
+                                (left . 90)
+                                ))
+    (set-background-color "Black") ; 背景色
+    (set-foreground-color "White") ; 字の色
+    (set-cursor-color "Gray")      ; カーソルの色
+    )
+
+   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; スパコンcamphor ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
    ((string-match "^ap" system-name)
+
+    ;; フォント設定
+    (set-face-attribute 'default nil
+                        :height 140)
 
     ;; ウィンドウサイズ等設定
     (setq initial-frame-alist '(
