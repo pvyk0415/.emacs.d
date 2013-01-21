@@ -98,10 +98,10 @@
 
     ;; ウィンドウサイズ等設定
     (setq initial-frame-alist '(
-                                (width . 128)
-                                (height . 44)
-                                (top . 5)
-                                (left . 80)
+                                (width . 133)
+                                (height . 42)
+                                (top . 10)
+                                (left . 5)
                                 ))
     (set-background-color "Black") ; 背景色
     (set-foreground-color "White") ; 字の色
